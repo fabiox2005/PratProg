@@ -22,4 +22,10 @@ public class Retangulo extends Poligono implements Diagonal {
 		return getAltura() * Math.sqrt(2);
 	}
 
+	@Override
+	public double Volume() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

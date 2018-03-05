@@ -9,22 +9,6 @@ public class Triangulo extends Poligono implements Diagonal{
 		// TODO Auto-generated constructor stub
 	}
 
-	public double getladoA() {
-		return ladoA;
-	}
-
-	public void setladoA(double ladoA) {
-		this.ladoA = ladoA;
-	}
-
-	public double getladoB() {
-		return ladoB;
-	}
-
-	public void setladoB(double ladoB) {
-		this.ladoB = ladoB;
-	}
-
 	@Override
 	public double Area() {
 		return ( getBase() * getAltura() ) / 2;
@@ -38,6 +22,12 @@ public class Triangulo extends Poligono implements Diagonal{
 	@Override
 	public double diagonal() {
 		return getAltura() * Math.sqrt(2);
+	}
+
+	@Override
+	public double Volume() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
     
 }

@@ -20,6 +20,12 @@ public class Quadrado extends Poligono implements Diagonal {
 	@Override
 	public double diagonal() {
 		return getAltura() * Math.sqrt(2);
+	}
+
+	@Override
+	public double Volume() {
+		// TODO Auto-generated method stub
+		return 0;
 	}		
 
 }

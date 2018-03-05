@@ -1,8 +1,8 @@
 package Ex01;
 
-public class Circulo extends Figura {
+public class Circulo extends Figura{
 
-    public Circulo(double raio) {
+	public Circulo(double raio) {
 		super();
 		this.raio = raio;
 	}
@@ -25,6 +25,12 @@ public class Circulo extends Figura {
 	@Override
 	public double Perimetro(){
 		return 2 * Math.PI * this.getRaio();
+	}
+
+	@Override
+	public double Volume() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }	
