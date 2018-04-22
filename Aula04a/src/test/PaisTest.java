@@ -21,11 +21,11 @@ public class PaisTest {
 	 * Antes de rodar este teste, certifique-se que nao ha no banco nenhuma
 	 * linha com o id igual ao do escolhido para o to instanciado abaixo. Se
 	 * houver, delete. 
-	 * Certifique-se também que sobrecarregou o equals na classe
+	 * Certifique-se tambï¿½m que sobrecarregou o equals na classe
 	 * Pais. 
 	 * Certifique-se que a fixture pais1 foi criada no banco.
-	 * Além disso, a ordem de execução dos testes é importante; por
-	 * isso a anotação FixMethodOrder logo acima do nome desta classe
+	 * Alï¿½m disso, a ordem de execuï¿½ï¿½o dos testes ï¿½ importante; por
+	 * isso a anotaï¿½ï¿½o FixMethodOrder logo acima do nome desta classe
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -33,13 +33,13 @@ public class PaisTest {
 		pais = new Pais();
 		pais.setId(id);
 		pais.setNome("Vaticano");
-		pais.setPopulacao(831);
-		pais.setArea(0.44);
+		pais.setPopulacao("831");
+		pais.setArea("0.44");
 		copia = new Pais();
 		copia.setId(id);
 		copia.setNome("Vaticano");
-		copia.setPopulacao(831);
-		copia.setArea(0.44);
+		copia.setPopulacao("831");
+		copia.setArea("0.44");
 		paisService = new PaisService();
 		System.out.println(pais);
 		System.out.println(copia);
@@ -53,8 +53,8 @@ public class PaisTest {
 		Pais fixture = new Pais();
 		fixture.setId(1);
 		fixture.setNome("China");
-		fixture.setPopulacao(1415045928);
-		fixture.setArea(9388211);
+		fixture.setPopulacao("1415045928");
+		fixture.setArea("9388211");
 		PaisService novoService = new PaisService();
 		Pais novo = novoService.carregar(1);
 		assertEquals("testa inclusao", novo, fixture);
@@ -72,8 +72,8 @@ public class PaisTest {
 	@Test
 	public void test02Atualizar() {
 		System.out.println("atualizar");
-		pais.setPopulacao(999999);
-		copia.setPopulacao(999999);		
+		pais.setPopulacao("999999");
+		copia.setPopulacao("999999");		
 		paisService.atualizar(pais);
 		pais = paisService.carregar(pais.getId());
 		assertEquals("testa atualizacao", pais, copia);
@@ -84,8 +84,8 @@ public class PaisTest {
 		System.out.println("excluir");
 		copia.setId(-1);
 		copia.setNome(null);
-		copia.setPopulacao(-1);
-		copia.setArea(-1);
+		copia.setPopulacao(null);
+		copia.setArea(null);
 		paisService.excluir(id);
 		pais = paisService.carregar(id);
 		assertEquals("testa exclusao", pais, copia);

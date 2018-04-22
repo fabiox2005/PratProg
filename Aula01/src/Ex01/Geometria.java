@@ -2,8 +2,6 @@ package Ex01;
 
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
 public class Geometria {
 
 	public Geometria() {
@@ -42,19 +40,5 @@ public class Geometria {
 			}
 		}
 	}
-
-	/*
-	 * for(Figura fig:figuras){ if(fig instanceof Poligono)
-	 * JOptionPane.showMessageDialog(null, fig.getClass().getSimpleName() +
-	 * "\n\nArea = "+fig.Area()+"\nPerimetro: "+fig.Perimetro() +"\nDiagonal: "
-	 * +((Diagonal)fig).diagonal()); else if(fig instanceof Circulo)
-	 * JOptionPane.showMessageDialog(null, fig.getClass().getSimpleName() +
-	 * "\n\nArea = "+fig.Area()+"\nPerimetro: "+fig.Perimetro()+"\nVolume: "
-	 * +fig.Volume()); else JOptionPane.showMessageDialog(null,
-	 * fig.getClass().getSimpleName() +"\n\nArea = "+fig.Area()+"\nPerimetro: "
-	 * +fig.Perimetro());
-	 * 
-	 * }
-	 */
 
 }

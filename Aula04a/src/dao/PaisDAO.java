@@ -14,8 +14,8 @@ public class PaisDAO {
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlInsert);) {
 			stm.setString(1, pais.getNome());
-			stm.setLong(2, pais.getPopulacao());
-			stm.setDouble(3, pais.getArea());
+			stm.setString(2, pais.getPopulacao());
+			stm.setString(3, pais.getArea());
 			stm.execute();
 			String sqlQuery = "SELECT LAST_INSERT_ID()";
 			try (PreparedStatement stm2 = conn.prepareStatement(sqlQuery);
@@ -38,8 +38,8 @@ public class PaisDAO {
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
 			stm.setString(1, pais.getNome());
-			stm.setLong(2, pais.getPopulacao());
-			stm.setDouble(3, pais.getArea());
+			stm.setString(2, pais.getPopulacao());
+			stm.setString(3, pais.getArea());
 			stm.setInt(4, pais.getId());
 			stm.execute();
 		} catch (Exception e) {
@@ -48,7 +48,7 @@ public class PaisDAO {
 	}
 
 	public void excluir(int id) {
-		String sqlDelete = "DELETE FROM cliente WHERE id = ?";
+		String sqlDelete = "DELETE FROM pais WHERE id = ?";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlDelete);) {
@@ -62,7 +62,7 @@ public class PaisDAO {
 	public Pais carregar(int id) {
 		Pais pais = new Pais();
 		pais.setId(id);
-		String sqlSelect = "SELECT nome, populacao, area FROM cliente WHERE cliente.id = ?";
+		String sqlSelect = "SELECT nome, populacao, area FROM pais WHERE pais.id = ?";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
@@ -70,13 +70,13 @@ public class PaisDAO {
 			try (ResultSet rs = stm.executeQuery();) {
 				if (rs.next()) {
 					pais.setNome(rs.getString("nome"));
-					pais.setPopulacao(rs.getLong("populacao"));
-					pais.setArea(rs.getDouble("area"));
+					pais.setPopulacao(rs.getString("populacao"));
+					pais.setArea(rs.getString("area"));
 				} else {
 					pais.setId(-1);
 					pais.setNome(null);
-					pais.setPopulacao(-1);
-					pais.setArea(-1);
+					pais.setPopulacao(null);
+					pais.setArea(null);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
